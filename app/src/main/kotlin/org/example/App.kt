@@ -103,5 +103,16 @@ fun main() {
     // Elvis Operator
     val singer: String? = "Elvis Presley"
     print(singer?.length ?: "N/A")
+
+    fun setUser(name: String, age: Int): String {
+        return "Your name is $name, and you $age years old"
+    }
+
+    fun printUser(name: String) = print(name)
+
+    val user = setUser("Alfian", 19)
+    println(user)
+
+    printUser("Alfian")
 }
 
