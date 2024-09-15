@@ -76,5 +76,12 @@ fun main() {
     }
 
     print(office)
+
+    val intNumber = 100
+    val longNumber: Long = 100
+    val shortNumber: Short = 10
+    val byteNumber = 0b11010010
+    val doubleNumber: Double = 1.3
+    val floatNumber: Float = 0.123456789f
 }
 
