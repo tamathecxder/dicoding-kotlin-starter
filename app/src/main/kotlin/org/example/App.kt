@@ -83,5 +83,10 @@ fun main() {
     val byteNumber = 0b11010010
     val doubleNumber: Double = 1.3
     val floatNumber: Float = 0.123456789f
+
+    val intArray = intArrayOf(1, 3, 5, 7)  // [1, 3, 5, 7]
+    intArray[2] = 11                       // [1, 3, 11, 7]
+
+    print(intArray[2])
 }
 
