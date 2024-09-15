@@ -88,5 +88,12 @@ fun main() {
     intArray[2] = 11                       // [1, 3, 11, 7]
 
     print(intArray[2])
+
+    var obj: String? = "Dicoding"
+
+    if(obj is String) {
+        // Tidak membutuhkan casting secara eksplisit.
+        println("String length is ${obj.length}")
+    }
 }
 
