@@ -122,5 +122,20 @@ fun main() {
     // named argument
     val exampleName = getFullName(middle = "Asep", first = "Kurniawan", last = "Sibarani")
     print(exampleName)
+
+    fun sumNumbers(vararg number: Int): Int {
+        return number.sum()
+    }
+
+    print(sumNumbers(20,50,10,40))
+
+    fun sets(vararg number: Int) {
+        println(number)
+    }
+
+    val nums  = intArrayOf(20,23,12312,232)
+    sets(231,2321,*nums,23) // spread operator, "*{variable name}"
+
+
 }
 
