@@ -114,5 +114,13 @@ fun main() {
     println(user)
 
     printUser("Alfian")
+
+    fun getFullName(first: String, middle: String, last: String = "N/A"): String {
+        return "$first $middle $last"
+    }
+
+    // named argument
+    val exampleName = getFullName(middle = "Asep", first = "Kurniawan", last = "Sibarani")
+    print(exampleName)
 }
 
