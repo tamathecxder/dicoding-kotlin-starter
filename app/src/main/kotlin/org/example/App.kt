@@ -60,5 +60,8 @@ fun main() {
     """.trimIndent()
 
     print(line)
+
+    val name = "Kotlin"
+    print("My name is $name")
 }
 
