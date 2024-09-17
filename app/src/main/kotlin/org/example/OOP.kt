@@ -17,17 +17,17 @@ class DelegateName {
     }
 }
 
-class Animal(pName: String, pWeight: Double, pAge: Int, pIsMammal: Boolean){
+class Animal(name: String, weight: Double, age: Int, isMammal: Boolean){
     val name: String
     val weight: Double
     val age: Int
     val isMammal: Boolean
 
     init {
-        weight = if(pWeight < 0) 0.1 else pWeight
-        age = if(pAge < 0) 0 else pAge
-        name = pName
-        isMammal = pIsMammal
+        this.weight = if(weight < 0) 0.1 else weight
+        this.age = if(age < 0) 0 else age
+        this.name = name
+        this.isMammal = isMammal
     }
 
     // Late Init
@@ -39,11 +39,11 @@ class Animal(pName: String, pWeight: Double, pAge: Int, pIsMammal: Boolean){
     }
 
     fun eat(){
-        println("$name makan!")
+        println(this.name + " makan!")
     }
 
     fun sleep() {
-        println("$name tidur!")
+        println(this.name + "tidur!")
     }
 }
 
