@@ -44,6 +44,14 @@ open class Animal(name: String, protected var weight: Double, age: Int){
         println(this.name + " makan!")
     }
 
+    fun eat(typeFood: String) {
+        println("$name memakan $typeFood!")
+    }
+
+    fun eat(typeFood: String, quantity: Double) {
+        println("$name memakan $typeFood sebanyak $quantity grams!")
+    }
+
     fun sleep() {
         println(this.name + "tidur!")
     }
@@ -91,6 +99,7 @@ class Vehicle {
 
 fun main() {
     val animal = Animal("Elephant", 100.24, 0, true)
+    animal.eat("Grass", 19.9)
     println("Nama Hewan: ${animal.getName()}")
 
     val person = Person()
