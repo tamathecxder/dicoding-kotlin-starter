@@ -89,13 +89,25 @@ class DelegateGenericClass {
     }
 }
 
-open class AnimalV2(val name: String, val weight: Double, val age: Int, val isCarnivore: Boolean){
+abstract class AnimalV2(val name: String, val weight: Double, val age: Int, val isCarnivore: Boolean){
     open fun eat(){
         println("$name sedang makan!")
     }
 
     open fun sleep(){
         println("$name sedang tidur!")
+    }
+}
+
+interface IFly {
+    fun fly()
+    val numberOfWings: Int
+}
+
+class Bird(override val numberOfWings: Int) : IFly {
+    override fun fly() {
+        if(numberOfWings > 0) println("Flying with $numberOfWings wings")
+        else println("I'm Flying without wings")
     }
 }
 
