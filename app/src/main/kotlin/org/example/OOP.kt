@@ -17,11 +17,10 @@ class DelegateName {
     }
 }
 
-class Animal(name: String, weight: Double, age: Int){
-    val name: String
-    val weight: Double
-    val age: Int
-    var isMammal: Boolean
+open class Animal(name: String, protected var weight: Double, age: Int){
+    private var name: String
+    private val age: Int
+    private var isMammal: Boolean
 
     init {
         this.weight = if(weight < 0) 0.1 else weight
@@ -48,7 +47,17 @@ class Animal(name: String, weight: Double, age: Int){
     fun sleep() {
         println(this.name + "tidur!")
     }
+
+    fun getName(): String {
+        return name
+    }
+
+    fun setName(newName: String) {
+        name = newName
+    }
 }
+
+class Lion(pName: String, pWeight: Double, pAge: Int) : Animal(pName, pWeight, pAge) {}
 
 class Hero() {
     var name: String by DelegateName()
@@ -72,6 +81,8 @@ class DelegateGenericClass {
     }
 }
 
+internal class AnimalV2(val name: String)
+
 class Vehicle {
     var name: Any by DelegateGenericClass()
     var weight: Any by DelegateGenericClass()
@@ -79,13 +90,8 @@ class Vehicle {
 }
 
 fun main() {
-    val cat = Animal("Ant", 20.0, 0, false);
-    println("Nama: ${cat.name}, Berat: ${cat.weight}, Umur: ${cat.age}, mamalia: ${cat.isMammal}")
-    cat.eat()
-    cat.sleep()
-
     val animal = Animal("Elephant", 100.24, 0, true)
-    println("Nama Hewan: ${animal.name}")
+    println("Nama Hewan: ${animal.getName()}")
 
     val person = Person()
     person.name = "Dimas"
