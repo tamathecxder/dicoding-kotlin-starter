@@ -17,19 +17,22 @@ class DelegateName {
     }
 }
 
-class Animal(name: String, weight: Double, age: Int, isMammal: Boolean){
+class Animal(name: String, weight: Double, age: Int){
     val name: String
     val weight: Double
     val age: Int
-    val isMammal: Boolean
+    var isMammal: Boolean
 
     init {
         this.weight = if(weight < 0) 0.1 else weight
         this.age = if(age < 0) 0 else age
         this.name = name
-        this.isMammal = isMammal
+        this.isMammal = false
     }
 
+    constructor(name: String, weight: Double, age: Int, isMammal: Boolean) : this(name, weight, age) {
+        this.isMammal = isMammal
+    }
     // Late Init
     lateinit var description: String;
 
