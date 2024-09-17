@@ -3,6 +3,8 @@
  */
 package org.example
 
+import kotlin.random.Random
+
 class App {
     val greeting: String
         // single line comment
@@ -136,6 +138,96 @@ fun main() {
     val nums  = intArrayOf(20,23,12312,232)
     sets(231,2321,*nums,23) // spread operator, "*{variable name}"
 
+    // Statement
+    val selectedNum = 7
+    val stringOfValue = when (selectedNum) {
+        6 -> "value is 6"
+        7 -> "value is 7"
+        8 -> "value is 8"
+        else -> "value cannot be reached"
+    }
+
+    val stringOfValue2 = when (value) {
+        6 -> {
+            println("Six")
+            "value is 6"
+        }
+        7 -> {
+            println("Seven")
+            "value is 7"
+        }
+        8 -> {
+            println("Eight")
+            "value is 8"
+        }
+        else -> {
+            println("undefined")
+            "value cannot be reached"
+        }
+    }
+
+    val anyType : Any = 100L
+    when(anyType){
+        is Long -> println("the value has a Long type")
+        is String -> println("the value has a String type")
+        else -> println("undefined")
+    }
+
+    val xx =  27
+    val ranges = 10..50
+
+    when(xx){
+        in ranges -> println("value is in the range")
+        !in ranges -> println("value is outside the range")
+    }
+
+    println(stringOfValue)
+
+    fun getRegisterNumber() = Random.nextInt(100)
+    val registerNumber = when(val regis = getRegisterNumber()){
+        in 1..50 -> 50 * regis
+        in 51..100 -> 100 * regis
+        else -> regis
+    }
+
+    // While loop
+    var counter1 = 1
+    while (counter1 <= 7){
+        println("Hello, World!")
+        counter1++
+    }
+
+    var counter2 = 1
+    do {
+        println("Hello, World!")
+        counter2++
+    } while (counter2 <= 7)
+
+    // Range
+    val rangeInt = 1..10 step 2
+    rangeInt.forEach {
+        print("$it ")
+    }
+    println(rangeInt.step)
+
+    // For loop
+    val rangesExample = 1.rangeTo(10) step 3
+    for ((index, value) in rangesExample.withIndex()) {
+        println("value $value with index $index")
+    }
+
+    // Foreach
+    val rangesX = 1.rangeTo(10) step 3
+    rangesX.forEach { value ->
+        println("value is $value!")
+    }
+
+    val tenToOne = 10.downTo(1)
+    if (7 in tenToOne) {
+        println("Value 7 available")
+    }
+
+    val rangeChar = 'A'.rangeTo('F')
 
 }
 
