@@ -163,6 +163,9 @@ class Vehicle {
     // Extension Properties
     val Int.slice: Int get() = this / 2
 
+    val Int?.sliceSafe: Int
+        get() = this?.div(2) ?: 0
+
     fun handlePrint() {
         println("Sliced Value: " + 20.slice)
         println(20 sum 80)
