@@ -17,13 +17,7 @@ class DelegateName {
     }
 }
 
-class Animal() {
-    var name: String by DelegateName()
-
-    var weight: Double = 3.2
-    var age: Int = 2
-    var isMammal: Boolean = true
-
+class Animal(var name: String, var weight: Double, var age: Int = 0, var isMammal: Boolean = true) {
     // Late Init
     lateinit var description: String;
 
@@ -70,12 +64,12 @@ class Vehicle {
 }
 
 fun main() {
-    val cat = Animal();
+    val cat = Animal("Ant", 20.0, 0, false);
     println("Nama: ${cat.name}, Berat: ${cat.weight}, Umur: ${cat.age}, mamalia: ${cat.isMammal}")
     cat.eat()
     cat.sleep()
 
-    val animal = Animal()
+    val animal = Animal("Elephant", 100.24, 0, true)
     animal.name = "Dicoding Miaw"
     println("Nama Hewan: ${animal.name}")
 
