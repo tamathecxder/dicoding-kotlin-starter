@@ -17,7 +17,19 @@ class DelegateName {
     }
 }
 
-class Animal(var name: String, var weight: Double, var age: Int = 0, var isMammal: Boolean = true) {
+class Animal(pName: String, pWeight: Double, pAge: Int, pIsMammal: Boolean){
+    val name: String
+    val weight: Double
+    val age: Int
+    val isMammal: Boolean
+
+    init {
+        weight = if(pWeight < 0) 0.1 else pWeight
+        age = if(pAge < 0) 0 else pAge
+        name = pName
+        isMammal = pIsMammal
+    }
+
     // Late Init
     lateinit var description: String;
 
@@ -70,7 +82,6 @@ fun main() {
     cat.sleep()
 
     val animal = Animal("Elephant", 100.24, 0, true)
-    animal.name = "Dicoding Miaw"
     println("Nama Hewan: ${animal.name}")
 
     val person = Person()
