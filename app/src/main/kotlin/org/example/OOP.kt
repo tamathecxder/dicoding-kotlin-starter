@@ -1,6 +1,7 @@
 package org.example
 
 import kotlin.reflect.KProperty
+import org.example.starter.*
 
 class DelegateName {
     private var value: String = "Default"
@@ -205,4 +206,9 @@ fun main() {
     }
 
     10.printInt()
+
+    org.example.starter.sayHello()
+    println(factorial(4.0))
+    println(pow(3.0, 2.0))
+    println(PI)
 }
