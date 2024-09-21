@@ -4,6 +4,22 @@ class User(val name : String, val age : Int)
 
 data class DataUser(val name : String, val age : Int)
 
+
+class House {
+    val buildingArea = 100
+
+    class Door {
+
+    }
+
+    inner class Room {
+        val totalRooms = 4
+        fun measureRoomArea() {
+            print(buildingArea/totalRooms)
+        }
+    }
+}
+
 fun main() {
     val user = User("Asep", 20)
     val dataUser = DataUser("nrohmen", 17)
@@ -24,4 +40,8 @@ fun main() {
 
     println("My name is $name, I am $age years old")
     println("My name is $name2, I am $age2 years old")
+
+    val house = House()
+    val room = house.Room()
+    room.measureRoomArea()
 }
