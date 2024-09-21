@@ -21,8 +21,15 @@ fun main() {
 
     // mutable
     val mutableSet = mutableSetOf(1, 2, 4, 2, 1, 5)
-//mutableSet[2] = 6 // tidak bisa mengubah mutableSet
+    //mutableSet[2] = 6 // tidak bisa mengubah mutableSet
     mutableSet.add(6) // menambah item di akhir set
     mutableSet.remove(1) //menghapus item yang memiliki nilai 1
+
+    val numbers = setOf("one", "two", "three")
+    val numbers2 = setOf("three", "four")
+
+    // merge differences
+    println((numbers - numbers2) union (numbers2 - numbers))
+    // [one, two, four]
 }
 
