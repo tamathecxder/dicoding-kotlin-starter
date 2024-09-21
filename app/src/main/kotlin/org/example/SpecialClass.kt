@@ -85,6 +85,10 @@ class Puppy : IBark {
     }
 }
 
+fun interface ISting {
+    fun sting()
+}
+
 fun main() {
     val user = User("Asep", 20)
     val dataUser = DataUser("nrohmen", 17)
@@ -155,5 +159,9 @@ fun main() {
             println("The Dog Barking")
         }
     })
+
+    ISting {
+        println("sting...")
+    }
 
 }
