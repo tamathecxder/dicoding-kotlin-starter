@@ -47,6 +47,28 @@ fun main() {
     mutableCapital.put("Amsterdam", "Netherlands")
     mutableCapital.put("Berlin", "Germany")
 
+    // Collections Operations
+    val numberList2 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val evenList = numberList2.filter { it % 2 == 0 }
+    // val evenList = numberList2.filterNot { it % 2 == 0 }
 
+    println(evenList)
+
+    val numberList3 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val multipliedBy5 = numberList3.map { it * 5 }
+
+    println(multipliedBy5)
+    print(numberList.count())
+
+    val numberList4 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val firstOddNumber = numberList4.find { it % 2 == 1 }
+    val firstOrNullNumber = numberList4.firstOrNull { it % 2 == 3 }
+
+    println(firstOddNumber)
+    println(firstOrNullNumber)
+
+    val numberList5 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val moreThan10 = numberList5.first { it > 10 }
+    print(moreThan10)
 }
 
