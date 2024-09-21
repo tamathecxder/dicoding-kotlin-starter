@@ -4,18 +4,15 @@ class User(val name : String, val age : Int)
 
 data class DataUser(val name : String, val age : Int)
 
-
 class House {
     val buildingArea = 100
-
-    class Door {
-
-    }
+    val totalRooms = 4
 
     inner class Room {
-        val totalRooms = 4
+        val totalRooms = 2
         fun measureRoomArea() {
-            print(buildingArea/totalRooms)
+            println(buildingArea / this@House.totalRooms)
+            println(buildingArea/ totalRooms)
         }
     }
 }
