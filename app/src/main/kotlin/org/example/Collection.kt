@@ -104,5 +104,40 @@ fun main() {
     println(dropLast)
     println(take)
     println(takeLast)
+
+    val totals = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val slice = totals.slice(3..6)
+
+    println(slice)
+
+    val index = listOf(2, 3, 5, 8)
+    val total2 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val slice2 = total2.slice(index)
+
+    println(slice2)
+
+    val datas = listOf(1, 2, 1, 3, 4, 5, 2, 3, 4, 5)
+    val distinct = datas.distinct()
+
+    println(distinct)
+
+    val text = listOf("A", "B", "CC", "DD", "EEE", "F", "GGGG")
+    val distinctx = text.distinctBy {
+        it.length
+    }
+
+    println(distinctx)
+
+    val word = "QWERTY"
+    val chunked = word.chunked(3)
+
+    println(chunked)
+
+    val word2 = "QWERTY"
+    val chunkedTransform = word2.chunked(3) {
+        it.toString().toLowerCase()
+    }
+
+    println(chunkedTransform)
 }
 
