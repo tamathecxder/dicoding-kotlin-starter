@@ -68,8 +68,8 @@ fun main() {
     println(firstOrNullNumber)
 
     val numberList5 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val moreThan10 = numberList5.first { it > 10 }
-    print(moreThan10)
+//    val moreThan10 = numberList5.first { it > 10 }
+//    print(moreThan10)
 
     val numberList6 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     val total = numberList6.sum()
@@ -139,5 +139,12 @@ fun main() {
     }
 
     println(chunkedTransform)
+
+    val list = (1..10000).toList()
+    val numberData = list.asSequence().filter { it % 5 == 0 }.map { it * 2 }.first()
+    println(numberData)
+
+    val sequenceNumber = generateSequence(1) { it + 1 }
+    sequenceNumber.take(5).forEach { print("$it ") }
 }
 
