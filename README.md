@@ -18,7 +18,7 @@ This repository includes various materials and code samples I created while atte
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/username/dicoding-kotlin-starter.git
+   git clone https://github.com/tamathecxder/dicoding-kotlin-starter.git
    
 2. Open the project in a Kotlin-supported IDE (IntelliJ IDEA or Android Studio is recommended).
 
