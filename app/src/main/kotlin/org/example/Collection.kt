@@ -83,5 +83,26 @@ fun main() {
     val kotlinChar2 = listOf('k', 'o', 't', 'l', 'i', 'n')
     val descendingSort = kotlinChar2.sortedDescending()
     println(descendingSort)
+
+    val numbers6 = listOf(1, 2, 3)
+    val fold = numbers6.fold(10) { current, item ->
+        println("current $current")
+        println("item $item")
+        println()
+        current + item
+    }
+
+    println("Fold result: $fold")
+
+    val number = listOf(1, 2, 3, 4, 5, 6)
+    val drop = number.drop(3)
+    val dropLast = number.dropLast(3)
+    val take = number.take(3)
+    val takeLast = number.takeLast(3)
+
+    println(drop)
+    println(dropLast)
+    println(take)
+    println(takeLast)
 }
 
