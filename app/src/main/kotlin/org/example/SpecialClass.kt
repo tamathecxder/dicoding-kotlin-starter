@@ -43,6 +43,34 @@ sealed class Result {
     object Loading : Result()
 }
 
+// Singleton
+object CentralLibrary {
+    fun borrowBookById(id: Int) {
+        print("Book with $id has been borrowed")
+    }
+}
+
+class Library {
+    companion object{
+        fun borrowBookById(id: Int) {
+            println("Book with $id has been borrowed")
+        }
+    }
+}
+
+class MyLibrary {
+    // Const 'val' are only allowed on top level, in named objects, or in companion objects
+    // const val LIBRARY_NAME = "Dicoding Library"
+
+    fun totalBook() {
+        print("Total book in $LIBRARY_NAME is unlimited")
+    }
+
+    companion object{
+        const val LIBRARY_NAME = "Dicoding Library"
+    }
+}
+
 fun main() {
     val user = User("Asep", 20)
     val dataUser = DataUser("nrohmen", 17)
@@ -101,4 +129,11 @@ fun main() {
             println("Loading...")
         }
     }
+
+    CentralLibrary.borrowBookById(2)
+    Library.borrowBookById(1)
+    Library.Companion.borrowBookById(5)
+    val libName = MyLibrary.LIBRARY_NAME;
+    println(libName)
+
 }
