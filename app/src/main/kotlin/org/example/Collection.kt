@@ -70,5 +70,18 @@ fun main() {
     val numberList5 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     val moreThan10 = numberList5.first { it > 10 }
     print(moreThan10)
+
+    val numberList6 = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val total = numberList6.sum()
+
+    println(total)
+
+    val kotlinChar1 = listOf('k', 'o', 't', 'l', 'i', 'n')
+    val ascendingSort = kotlinChar1.sorted()
+    println(ascendingSort)
+
+    val kotlinChar2 = listOf('k', 'o', 't', 'l', 'i', 'n')
+    val descendingSort = kotlinChar2.sortedDescending()
+    println(descendingSort)
 }
 
