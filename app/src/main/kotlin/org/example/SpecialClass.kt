@@ -37,6 +37,12 @@ enum class Color(val value: Int) {
     abstract fun printValue()
 }
 
+sealed class Result {
+    sealed class Success(val data: Any) : Result()
+    data class Error(val message: String) : Result()
+    object Loading : Result()
+}
+
 fun main() {
     val user = User("Asep", 20)
     val dataUser = DataUser("nrohmen", 17)
@@ -81,5 +87,19 @@ fun main() {
         Color.RED -> print("Color is Red")
         Color.BLUE -> print("Color is Blue")
         Color.GREEN -> print("Color is Green")
+    }
+
+    val result: Result = Result.Error("Oops!")
+    when (result) {
+        //jika salah satu kondisi dihapus, kode akan error
+        is Result.Success -> {
+            println("Success: ${result.data}")
+        }
+        is Result.Error -> {
+            println("Error: ${result.message}")
+        }
+        is Result.Loading -> {
+            println("Loading...")
+        }
     }
 }
