@@ -71,6 +71,20 @@ class MyLibrary {
     }
 }
 
+interface IBark {
+    fun bark()
+}
+
+fun loudBark(dog: IBark) {
+    dog.bark()
+}
+
+class Puppy : IBark {
+    override fun bark() {
+        println("The Puppy barking")
+    }
+}
+
 fun main() {
     val user = User("Asep", 20)
     val dataUser = DataUser("nrohmen", 17)
@@ -135,5 +149,11 @@ fun main() {
     Library.Companion.borrowBookById(5)
     val libName = MyLibrary.LIBRARY_NAME;
     println(libName)
+
+    loudBark(object : IBark {
+        override fun bark() {
+            println("The Dog Barking")
+        }
+    })
 
 }
