@@ -30,6 +30,23 @@ fun main() {
 
     // merge differences
     println((numbers - numbers2) union (numbers2 - numbers))
-    // [one, two, four]
+
+    val capital = mapOf(
+        "Jakarta" to "Indonesia",
+        "London" to "England",
+        "New Delhi" to "India"
+    )
+
+    val capitalKeys = capital.keys
+    val capitanValues = capital.values
+
+    println(capital["Jakarta"])
+    println(capital.getValue("Jakarta"))
+
+    val mutableCapital = capital.toMutableMap()
+    mutableCapital.put("Amsterdam", "Netherlands")
+    mutableCapital.put("Berlin", "Germany")
+
+
 }
 
