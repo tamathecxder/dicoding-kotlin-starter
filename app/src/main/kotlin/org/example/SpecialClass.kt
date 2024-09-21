@@ -91,7 +91,6 @@ fun main() {
 
     val result: Result = Result.Error("Oops!")
     when (result) {
-        //jika salah satu kondisi dihapus, kode akan error
         is Result.Success -> {
             println("Success: ${result.data}")
         }
