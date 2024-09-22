@@ -110,4 +110,29 @@ fun main() {
         println("with: Initializing $name, age $age")
         "Result: $name is $age years old" // return value
     }
+
+    // run
+    val result1 = text.run {
+        val from = this
+        val to = this.replace("Hello", "Kotlin")
+        "replace text from $from to $to"
+    }
+    println("result : $result1")
+
+    // with
+    val message2 = "Hello Kotlin!"
+    val result2 = with(message2) {
+        "First character is ${this[0]}" +
+                " and last character is ${this[this.length - 1]}"
+    }
+
+    println(result2)
+
+    // apply
+    val message3 = StringBuilder().apply {
+        append("Hello ")
+        append("Kotlin!")
+    }
+
+    println(message3.toString())
 }
