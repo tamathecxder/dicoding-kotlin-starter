@@ -196,4 +196,15 @@ fun main() {
     }
 
     println(sum(20, 50, 90))
+
+    tailrec fun factorial(n: Int, result: Int = 1): Int {
+        val newResult = n * result
+        return if (n == 1) {
+            newResult
+        } else {
+            factorial(n - 1, newResult)
+        }
+    }
+
+    println(factorial(2, 1))
 }
