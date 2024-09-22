@@ -98,7 +98,7 @@ fun main() {
     val dataUser5 = dataUser.copy(age = 18)
 
     println(user)
-    println(dataUser)
+    println(dataUser.name)
     println(dataUser2.equals(dataUser3))
     println(dataUser4)
     println(dataUser5)
