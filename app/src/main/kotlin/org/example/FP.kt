@@ -11,6 +11,16 @@ inline fun printResult(value: Int, sum: (Int) -> Int) {
 class PersonV2(val name: String, val age: Int) {
 }
 
+val sumV2: (Int, Int) -> Int = ::count
+fun count(valueA: Int, valueB
+: Int): Int {
+    return valueA + valueB
+}
+
+fun Int.isEvenNumber() = this % 2 == 0
+
+var messagex: String = "Test"
+
 fun main() {
     val sum: Arithmetic = { valueA, valueB -> valueA + valueB }
 
@@ -154,4 +164,20 @@ fun main() {
     }
 
     println("text -> $result")
+
+
+
+    val numbers = 1.rangeTo(10)
+    val evenNumbers = numbers.filter(Int::isEvenNumber)
+
+    println(evenNumbers)
+
+
+
+    println(::messagex.name)
+    println(::messagex.get())
+
+    ::messagex.set("Kotlin Academy")
+
+    println(::messagex.get())
 }
