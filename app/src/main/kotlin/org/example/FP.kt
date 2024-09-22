@@ -135,4 +135,23 @@ fun main() {
     }
 
     println(message3.toString())
+
+    // also
+    val message7: String? = null
+    message7?.let {
+        val length = it.length * 2
+        val text = "text length $length"
+        println(text)
+    } ?: run {
+        val text = "message is null"
+        println(text)
+    }
+
+    // let
+    val text1 = "Hello Kotlin"
+    val result = text1.also {
+        println("value length -> ${it.length}")
+    }
+
+    println("text -> $result")
 }
