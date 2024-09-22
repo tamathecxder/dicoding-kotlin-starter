@@ -3,6 +3,11 @@ package org.example
 typealias Arithmetic = (Int, Int) -> Int
 typealias Concat = ((String?, String?) -> String)?
 
+inline fun printResult(value: Int, sum: (Int) -> Int) {
+    val result = sum(value)
+    println(result)
+}
+
 fun main() {
     val sum: Arithmetic = { valueA, valueB -> valueA + valueB }
 
@@ -37,4 +42,12 @@ fun main() {
     ranges.forEachIndexed() { index, value ->
         println("value is $value! ($index)")
     }
+
+    printResult(10, { value ->
+        value + value
+    })
+
+    printResult(20, { value ->
+        value + value
+    })
 }
