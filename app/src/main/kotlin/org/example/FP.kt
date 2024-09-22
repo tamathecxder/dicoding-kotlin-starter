@@ -26,4 +26,15 @@ fun main() {
     val strResult = doConcat?.invoke(strA, strB)
 
     println(strResult)
+
+    val message :(String) -> String = { name: String ->
+        "Hello $name"
+    }
+
+    println(message("Asep"))
+
+    val ranges = 1.rangeTo(10) step 3
+    ranges.forEachIndexed() { index, value ->
+        println("value is $value! ($index)")
+    }
 }
