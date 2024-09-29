@@ -76,8 +76,21 @@ fun handleCancel() = runBlocking {
     if (job.isCancelled){
         println("Job is cancelled because: ${job.getCancellationException().message}")
     }
-
 }
+
+fun handleDeferredJob() = runBlocking {
+    val capitalDeferred = async { getCapital() }
+    val incomeDeferred = async { getIncome() }
+
+    try {
+        val capital = capitalDeferred.await()
+        val income = incomeDeferred.await()
+        println("Your profit is ${income - capital}")
+    } catch (e: Exception) {
+        println("An error occurred: ${e.message}")
+    }
+}
+
 @InternalCoroutinesApi
 fun main() {
 //    initCoroutine()
@@ -86,5 +99,7 @@ fun main() {
 //    handleLauch()
 //    handleJob()
 
-    handleCancel()
+//    handleCancel()
+
+    handleDeferredJob()
 }
