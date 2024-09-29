@@ -91,6 +91,25 @@ fun handleDeferredJob() = runBlocking {
     }
 }
 
+fun coroutineDispatchers() = runBlocking {
+    // default
+    launch(Dispatchers.Default){
+        // TODO: Implement suspending lambda here
+    }
+
+    // IO
+    launch(Dispatchers.IO) {
+        // TODO: Implement suspending lambda here
+    }
+
+    // Unconfined
+    launch(Dispatchers.Unconfined) {
+        println("Starting in ${Thread.currentThread().name}")
+        delay(1000)
+        println("Resuming in ${Thread.currentThread().name}")
+    }.start()
+}
+
 @InternalCoroutinesApi
 fun main() {
 //    initCoroutine()
@@ -101,5 +120,7 @@ fun main() {
 
 //    handleCancel()
 
-    handleDeferredJob()
+//    handleDeferredJob()
+
+    coroutineDispatchers()
 }
