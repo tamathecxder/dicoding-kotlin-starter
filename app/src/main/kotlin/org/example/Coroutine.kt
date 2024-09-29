@@ -1,6 +1,7 @@
 package org.example
 
 import kotlinx.coroutines.*
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.system.measureTimeMillis
 
 fun initCoroutine() = runBlocking{
@@ -61,10 +62,29 @@ fun handleJob() = runBlocking {
     val job = Job()
 }
 
-fun main() {
-    initCoroutine()
-    asyncProcess()
+// cancel job
+@InternalCoroutinesApi
+fun handleCancel() = runBlocking {
+    val job = launch {
+        delay(5000)
+        println("Start new job!")
+    }
 
-    handleLauch()
-    handleJob()
+    delay(2000)
+    job.cancel(cause = CancellationException("Time is up"))
+    println("Cancelling job...")
+    if (job.isCancelled){
+        println("Job is cancelled because: ${job.getCancellationException().message}")
+    }
+
+}
+@InternalCoroutinesApi
+fun main() {
+//    initCoroutine()
+//    asyncProcess()
+//
+//    handleLauch()
+//    handleJob()
+
+    handleCancel()
 }
