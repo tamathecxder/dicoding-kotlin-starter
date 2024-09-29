@@ -1,6 +1,7 @@
 package org.example
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.system.measureTimeMillis
 
@@ -130,6 +131,17 @@ fun handleThreadPool() = runBlocking<Unit> {
     }.start()
 }
 
+fun handleChannel() = runBlocking(CoroutineName("main")) {
+    val channel = Channel<Int>()
+    launch(CoroutineName("v1coroutine")){
+        println("Sending from ${Thread.currentThread().name}")
+        for (x in 1..5) channel.send(x * x)
+    }
+
+    repeat(5) { println(channel.receive()) }
+    println("received in ${Thread.currentThread().name}")
+}
+
 @InternalCoroutinesApi
 fun main() {
 //    initCoroutine()
@@ -146,5 +158,7 @@ fun main() {
 
 //    handleSingleThreadContext()
 
-    handleThreadPool()
+//    handleThreadPool()
+
+    handleChannel()
 }
