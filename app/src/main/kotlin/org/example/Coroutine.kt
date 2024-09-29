@@ -110,6 +110,26 @@ fun coroutineDispatchers() = runBlocking {
     }.start()
 }
 
+
+fun handleSingleThreadContext() = runBlocking<Unit> {
+    val dispatcher = newSingleThreadContext("myThread")
+    launch(dispatcher) {
+        println("Starting in ${Thread.currentThread().name}")
+        delay(1000)
+        println("Resuming in ${Thread.currentThread().name}")
+    }.start()
+}
+
+fun handleThreadPool() = runBlocking<Unit> {
+    val dispatcher = newFixedThreadPoolContext(3, "myPool")
+
+    launch(dispatcher) {
+        println("Starting in ${Thread.currentThread().name}")
+        delay(1000)
+        println("Resuming in ${Thread.currentThread().name}")
+    }.start()
+}
+
 @InternalCoroutinesApi
 fun main() {
 //    initCoroutine()
@@ -122,5 +142,9 @@ fun main() {
 
 //    handleDeferredJob()
 
-    coroutineDispatchers()
+//    coroutineDispatchers()
+
+//    handleSingleThreadContext()
+
+    handleThreadPool()
 }
