@@ -3,14 +3,14 @@ package org.example
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
-//fun main() = runBlocking{
-//    launch {
-//        delay(1000L)
-//        println("Coroutines!")
-//    }
-//    println("Hello,")
-//    delay(2000L)
-//}
+fun initCoroutine() = runBlocking{
+    launch {
+        delay(1000L)
+        println("Coroutines!")
+    }
+    println("Hello,")
+    delay(2000L)
+}
 
 suspend fun getCapital(): Int {
     delay(1000L)
@@ -22,7 +22,7 @@ suspend fun getIncome(): Int {
     return 75000
 }
 
-fun main() = runBlocking {
+fun asyncProcess() = runBlocking {
     val timeOne = measureTimeMillis {
         val capital = getCapital()
         val income = getIncome()
@@ -37,4 +37,34 @@ fun main() = runBlocking {
 
     println("Completed in $timeOne ms vs $timeTwo ms")
 
+}
+
+// use launch():
+fun handleLauch() = runBlocking {
+    val job = launch(start = CoroutineStart.LAZY) { // can be used later
+        delay(1000L)
+        println("Start new job!")
+    }
+
+    // not wait the job and will immediately called
+    job.start()
+    println("Other task")
+
+    // wait the job until finished and then it will run
+    job.join()
+    println("Other task but use join method")
+}
+
+
+// use Job():
+fun handleJob() = runBlocking {
+    val job = Job()
+}
+
+fun main() {
+    initCoroutine()
+    asyncProcess()
+
+    handleLauch()
+    handleJob()
 }
